@@ -1,0 +1,10 @@
+Package: alation
+Type: Package
+Title: Package to connect to Alation API
+Version: 1.1
+Date: 2015-05-29
+Author: Matt Gardner <magardner@ebay.com>
+Maintainer: Matt Gardner <magardner@ebay.com>
+Description: This package enables easy access to queries and results in the Alation tool.
+License: GPL
+Imports: RCurl

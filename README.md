@@ -1,2 +1,1 @@
-# alation
-R package to integrate with Alation Compose API
+R Package to allow use of Alation Compose API from R
