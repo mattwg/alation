@@ -4,6 +4,21 @@ This R package enables R users to access query and result objects created in Ala
 
 Alation is an intelligent query compose tool - for more information check out the [Alation website](http://alation.com)
 
+Reusing queries and results created in Alation in other applications is made possible through the Alation Compose API.  A [Python module](https://alation.uservoice.com/knowledgebase/articles/396525-use-compose-api) exists for Python users - here I present an R package for R users.
+
+The R package is simply called alation - this package makes it easy to use the Alation Compose API.  With the alation package you can:
+
+* Recover any Alation query as a SQL string that can then be submitted against databases using RJDBC or RODBC
+* Recover any Alation results object to save having to rerun queries multiple times
+
+In time the Alation API will also support:
+
+* Execution of queries on Alation without the need to connect independently to data sources
+* Substitute parameters into queries without using gsub in R
+* Automatically recover the latest run of a SQL query rather than having to find the query_id
+    
+As the Alation API evolves I will try and keep this package up to date.
+
 ## Installation
 
 ```{r}
@@ -39,12 +54,4 @@ df <- getResult(12345)
 ```
 
 Enjoy!
-
-## To come
-
-As Alation improve their API I will mirror development in this package - things we have discussed:
-
-* Ability to run queries via the API 
-* Get the latest result for a specific query
-* Improved metadata for query 
 
