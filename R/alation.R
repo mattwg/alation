@@ -69,7 +69,7 @@ getToken <- function(user="", password="", url="")
   data <- paste('Username=',URLencode(user,reserved=TRUE),'&Password=',URLencode(password,reserved=TRUE),sep='')
   
   result <- tryCatch({
-    resp <- getURL(url=api, .opts = list(postfields=data))
+    resp <- getURL(url=api, .opts = list(postfields=data, ssl.verifypeer = FALSE) )
   }, warning = function(w) {
     print(w)
   }, error = function(e) {
@@ -149,7 +149,7 @@ changeToken <- function(user="", password="", url="") {
   data <- paste('Username=',URLencode(user,reserved=TRUE),'&Password=',URLencode(password,reserved=TRUE),sep='')
   
   result <- tryCatch({
-    resp <- getURL(url=api, .opts = list(postfields=data))
+    resp <- getURL(url=api, .opts = list(postfields=data, ssl.verifypeer = FALSE))
   }, warning = function(w) {
     print(w)
   }, error = function(e) {
@@ -197,7 +197,7 @@ getQuery <- function(id)
   
   header <- basicTextGatherer()
   u <- paste(url, "/api/query/",id,"/sql/",sep="")
-  opts <- list(httpheader="Content-Type: application/json", httpheader=paste("token: ",token,sep=""))
+  opts <- list(httpheader="Content-Type: application/json", httpheader=paste("token: ",token,sep=""), ssl.verifypeer = FALSE)
   r <- getURL(u,.opts=opts, headerfunction = header$update)    
   h <- parseHTTPHeader( header$value() )
   if (! ( h["status"] >= 200 && h["status"] < 300 ) ) {
@@ -220,7 +220,7 @@ getResult <- function(id)
   if(id == "" ) {
     stop("A valid result_id is required")
   }
-  if (id != as.integer(result_id))
+  if (id != as.integer(id))
   {
     stop("The result_id must be an integer")
   }
@@ -231,7 +231,7 @@ getResult <- function(id)
   
   header <- basicTextGatherer()
   u <- paste(url, "/api/result/",id,"/csv/",sep="")
-  opts <- list(httpheader="Content-Type: application/json", httpheader=paste("token: ",token,sep=""))
+  opts <- list(httpheader="Content-Type: application/json", httpheader=paste("token: ",token,sep=""),  ssl.verifypeer = FALSE)
   r <- getURL(u,.opts=opts, headerfunction = header$update)    
   h <- parseHTTPHeader( header$value() )
   if (! ( h["status"] >= 200 && h["status"] < 300 ) ) {
