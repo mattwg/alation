@@ -183,7 +183,7 @@ changeToken <- function(user="", password="", url="") {
 getQuery <- function(id)
 {
   if(id == "" ) {
-    stop("A valid query_id is required")
+    stop("A valid Alation query id is required")
   }
   if (id != as.integer(id))
   {
@@ -218,11 +218,11 @@ getQuery <- function(id)
 getResult <- function(id)
 {
   if(id == "" ) {
-    stop("A valid result_id is required")
+    stop("A valid Alation result id is required")
   }
   if (id != as.integer(id))
   {
-    stop("The result_id must be an integer")
+    stop("The id must be an integer")
   }
   
   path <- path.package("alation")
