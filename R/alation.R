@@ -189,7 +189,10 @@ getQuery <- function(id)
   {
     stop("The query_id must be an integer")
   }
-
+  
+  if (!require("RCurl",quietly = TRUE)) {
+    stop("RCurl package required to connect to Alation.", call. = FALSE)
+  }
   
   path <- path.package("alation")
   f <- paste(path,"/.token",sep="")
@@ -223,6 +226,10 @@ getResult <- function(id)
   if (id != as.integer(id))
   {
     stop("The id must be an integer")
+  }
+  
+  if (!require("RCurl",quietly = TRUE)) {
+    stop("RCurl package required to connect to Alation.", call. = FALSE)
   }
   
   path <- path.package("alation")

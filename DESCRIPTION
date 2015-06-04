@@ -1,7 +1,7 @@
 Package: alation
 Type: Package
 Title: Package to connect to Alation API
-Version: 1.2
+Version: 1.3
 Date: 2015-06-02
 Author: Matt Gardner <magardner@ebay.com>
 Maintainer: Matt Gardner <magardner@ebay.com>
