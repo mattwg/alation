@@ -20,9 +20,9 @@ NULL
 #'
 #' As a side effect this caches the token for other API calls to utilise
 #' 
-#' @param user A valid ebay corp username.
-#' @param password A valid ebay corp password.
-#' @param url - the Alation URL 
+#' @param user Alation username.
+#' @param password Alation password.
+#' @param url Alation URL .
 #' @return An Alation token used in subsequent calls.
 #' @examples
 #' \dontrun{
@@ -101,9 +101,9 @@ getToken <- function(user="", password="", url="")
 #'
 #' As a side effect this caches the token for other API calls to utilise
 #' 
-#' @param user A valid Alation username.
-#' @param password A valid Alation corp password.
-#' @param url - the Alation URL 
+#' @param user Alation username.
+#' @param password Alation password.
+#' @param url Alation URL.
 #' @return An Alation token used in subsequent calls.
 #' @examples
 #' \dontrun{
@@ -173,7 +173,7 @@ changeToken <- function(user="", password="", url="") {
 
 #' Get query from Alation
 #'
-#' @param id - the Alation Query ID
+#' @param id Alation Query ID
 #' @return The query as a character object
 #' @examples
 #' \dontrun{
@@ -215,7 +215,7 @@ getQuery <- function(id)
 
 #' Get result from Alation
 #'
-#' @param id - the Alation Result ID
+#' @param id Alation Result ID
 #' @return The result as a data frame
 #' @examples
 #' \dontrun{
