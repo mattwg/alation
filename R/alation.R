@@ -78,7 +78,7 @@ getToken <- function(user="", password="", url="")
   
   
   if( result == "EXISTING"){
-    cat("Token already exists - to create a new token use changeToken().\n")
+    cat("Token already exists - to update your token use changeToken().\n")
     return(NULL)
   }
   
@@ -196,6 +196,10 @@ getQuery <- function(id)
   
   path <- path.package("alation")
   f <- paste(path,"/.token",sep="")
+  
+  if(!file.exists(f)) {
+    stop("You need an Alation token before calling getQuery() - see getToken() for details.")
+  }
   load(f)
   
   header <- basicTextGatherer()
@@ -234,6 +238,10 @@ getResult <- function(id)
   
   path <- path.package("alation")
   f <- paste(path,"/.token",sep="")
+  
+  if(!file.exists(f)) {
+    stop("You need an Alation token before calling getResult() - see getToken() for details.")
+  }
   load(f)
   
   header <- basicTextGatherer()
